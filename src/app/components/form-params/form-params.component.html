@@ -1,0 +1,26 @@
+<div class="container">
+    <div class="row" style="vertical-align: middle;">
+        <div class="col-md-6 mx-auto mt-5">
+            <div class="card" style="background-color:#D7CCC8;">
+                <div class="card-body" style="vertical-align: middle;">
+                    <h2 class="text-center">Simulador CSMA-CD</h2>
+                        <form [formGroup]="initialData" (ngSubmit)="add()">
+                        <div class="form-group" >
+                            <label class="col-8 mt-2" >Numero de host: </label>
+                            <input type="number" placeholder="Numero de host" class="form-control" formControlName="hosts">
+                        </div>
+                        <div class="form-group">
+                            <label class="col-8 mt-2" >Paquetes a transmitir por host: </label>
+                            <input type="number" placeholder="Numero" class="form-control" formControlName="trasmitterNumber">
+                        </div>
+                        <div class="form-group">
+                            <label class="col-8 mt-2" >Retardo de propagación: </label>
+                            <input type="number" placeholder="retardo" class="form-control" formControlName="delay">
+                        </div>
+                        <button type="submit" class="btn btn-dark float-right">Enviar</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

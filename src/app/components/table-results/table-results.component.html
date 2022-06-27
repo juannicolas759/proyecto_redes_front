@@ -1,0 +1,36 @@
+<div class="container mt-4">
+    <div class="card">
+        <div class="card-body">
+            <span class="h3 text-left">Datos simulación</span>
+              <h5 style="margin-top: 2%;" *ngIf="reports.length == 0">No hay datos para mostrar</h5>
+              <table *ngIf="reports.length > 0" class="table table-striped table-hover mt-5 ">
+                <thead>
+                  <tr>
+                    <th>Tiempo actual </th>
+                    <th>Hosts</th>
+                    <th>Paquetes exitosamente transmitidos</th>
+                    <th>Si ocurrió una colisión en ese tiempo</th>
+                    <th>Contador de colisiones</th>
+                    <th>Cantidad de paquetes por Host</th>
+                    </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let report of reports">
+                    <td >
+                      {{report.time}}
+                    </td> <!-- Los nombres de las variables en el back debes ser así o deben ser actualizados, además enviar como json preferiblemente para mostrar en lista-->
+                    <td >{{report.host}}</td>
+                    <td >{{report.packetsGood}}</td>
+                    <td >{{report.isCollision}}</td>
+                    <td >{{report.collisionCounter}}</td>
+                    <td >{{report.packetsPerHost}}</td>
+  
+                  </tr>
+                </tbody>
+              </table>
+              <div class="col-md-12">
+              </div>
+        </div>
+    </div>
+  </div>
+  
