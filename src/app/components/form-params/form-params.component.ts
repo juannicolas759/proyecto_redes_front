@@ -51,12 +51,9 @@ export class FormParamsComponent implements OnInit {
         speed: this.initialData.value.speed,
         distance: this.initialData.value.distance
       }
-      //  crear servicio en carpeta services y pasar por parametro al back
+      this._formService.sendInitParams(datas_form)
       this._formService.sendTime(datas_form);
       this.router.navigate(['/table-results']);
     }
-
   }
-
-
 }
