@@ -6,6 +6,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { FormParamsComponent } from './components/form-params/form-params.component';
 import { TableResultsComponent } from './components/table-results/table-results.component';
+import { FormServiceService } from './services/form-service.service';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,7 @@ import { TableResultsComponent } from './components/table-results/table-results.
     AppRoutingModule,
     ReactiveFormsModule
   ],
-  providers: [],
+  providers: [FormServiceService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
