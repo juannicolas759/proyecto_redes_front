@@ -1,6 +1,7 @@
 import { Inject } from '@angular/core';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { FormServiceService } from 'app/services/form-service.service';
 
 @Component({
   selector: 'app-table-results',
@@ -13,19 +14,21 @@ export class TableResultsComponent implements OnInit {
     {time: 2, host: 10, packetsGood: 2, isCollision: true, collisionCounter: 0, packetsPerHost: 5}];
   // eliminar dato de prueba del arreglo reports
   time: number = 1000;
-  totalTime: Number = 30000; //Tiempo por simulador, pasar por parámetro
-  hosts: Number = 10;//cantidad de hosts parámetros
+  data: any = {};//cantidad de hosts parámetros
 
-  constructor(private route: ActivatedRoute) { }
+  constructor(private route: ActivatedRoute,
+    public _formService: FormServiceService) { }
 
-  ngOnInit(): void {
-    let id = window.setInterval(() => {
-      //llamar al servicios
+  async ngOnInit(): Promise<void> {
+    await this._formService.$getTime.subscribe(async (data) => {
+      this.data = await data;
+    });
+    let id = window.setInterval(async () => {
+      //llamar al servicio
       //let datas = _service.metodoPost();
       //this.reports.push(datas);
       this.time += 1000;
-      console.log(this.time)
-      if(this.time >= this.totalTime){
+      if(this.time >= (this.data.time * 1000)){
         clearInterval(id)
       }
     }, this.time);

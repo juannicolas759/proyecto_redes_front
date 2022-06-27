@@ -5,22 +5,30 @@
                 <div class="card-body" style="vertical-align: middle;">
                     <h2 class="text-center">Simulador CSMA-CD</h2>
                         <form [formGroup]="initialData" (ngSubmit)="add()">
-                          <div class="form-group" >
-                            <label class="col-8 mt-2" >Tiempo de simulación: </label>
+                        <div class="form-group" >
+                            <label class="col-8 mt-1" >Tiempo de simulación: </label>
                             <input type="number" placeholder="Tiempo (s)" class="form-control" formControlName="time">
                         </div>
                         <div class="form-group" >
-                            <label class="col-8 mt-2" >Numero de host: </label>
+                            <label class="col-8 mt-1" >Numero de host: </label>
                             <input type="number" placeholder="Numero de host" class="form-control" formControlName="hosts">
                         </div>
-                        <div class="form-group">
-                            <label class="col-8 mt-2" >Paquetes a transmitir por host: </label>
-                            <input type="number" placeholder="Numero" class="form-control" formControlName="trasmitterNumber">
+                        <div class="form-group" >
+                          <label class="col-8 mt-1" >Velocidad de transmisión: </label>
+                          <input type="number" placeholder="Velocidad (Mbps)" class="form-control" formControlName="speed">
                         </div>
                         <div class="form-group">
-                            <label class="col-8 mt-2" >Retardo de propagación: </label>
-                            <input type="number" placeholder="retardo" class="form-control" formControlName="delay">
+                            <label class="col-8 mt-1">Tasa promedio de llegada de paquetes: </label>
+                            <input type="number" placeholder="Promedio paquete/s" class="form-control" formControlName="average">
                         </div>
+                        <div class="form-group">
+                            <label class="col-8 mt-1">Tamaño del paquete: </label>
+                            <input type="number" placeholder="Tamaño (bits)" class="form-control" formControlName="length">
+                        </div>
+                        <div class="form-group">
+                          <label class="col-8 mt-1">Distancia entre hosts: </label>
+                          <input type="number" placeholder="Distancia (m)" class="form-control" formControlName="distance">
+                      </div>
                         <button type="submit" class="btn btn-dark float-right">Enviar</button>
                     </form>
                 </div>

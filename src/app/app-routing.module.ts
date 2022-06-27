@@ -4,7 +4,9 @@ import { FormParamsComponent } from './components/form-params/form-params.compon
 import { TableResultsComponent } from './components/table-results/table-results.component';
 
 const routes: Routes = [{path:'', redirectTo:'form-params',pathMatch:'full'},
-{ path:'form-params', component : FormParamsComponent  },{ path:'table-results', component : TableResultsComponent  }];
+{ path:'form-params', component : FormParamsComponent  },
+{ path:'table-results', component : TableResultsComponent },
+{path:'**', redirectTo:'form-params',pathMatch:'full'}];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
