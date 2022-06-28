@@ -1,0 +1,26 @@
+<div class="col-md-6 mx-auto mt-5" >
+  <ngx-charts-advanced-pie-chart
+
+
+  [view]="view"
+  [scheme]="colorScheme"
+  [results]="single"
+  [gradient]="gradient"
+  (select)="onSelect($event)"
+  (activate)="onActivate($event)"
+  (deactivate)="onDeactivate($event)"></ngx-charts-advanced-pie-chart>
+</div>
+  <ngx-charts-bar-vertical 
+    [view]="[1000,400]"
+    [results]="dataBarras"
+    [xAxisLabel]="'Ventana de Tiempo'"
+    [legendTitle]="'Tiempo vs Paquetes exitosos'"
+    [yAxisLabel]="'Paquetes exitosos'"
+    [legend]="true"
+    [showXAxisLabel]="true"
+    [showYAxisLabel]="true"
+    [xAxis]="true"
+    [yAxis]="true"
+    [gradient]="true">
+</ngx-charts-bar-vertical>
+

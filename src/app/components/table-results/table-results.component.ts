@@ -17,9 +17,10 @@ export class TableResultsComponent implements OnInit {
   actual_time: number = 0;
   time: number = 0;
   data: any = {}; //cantidad de hosts parámetros
+  isCondition:boolean=false;
 
   constructor(private route: ActivatedRoute,
-    public _formService: FormServiceService) { }
+    public _formService: FormServiceService, private router: Router) { }
 
   async ngOnInit(): Promise<void> {
     await this._formService.$getTime.subscribe(async (data) => {
@@ -35,8 +36,37 @@ export class TableResultsComponent implements OnInit {
         this.successfully_packets = datas.successfully_packets
       }
       if(this.actual_time >= (this.data.time)){
+        this.isCondition=true;
+        this.showStatistics();
+        this.showStatisticsBarras();
         clearInterval(id)
       }
     }, 10);
+  }
+
+  showStatistics(){
+    let data : any =[
+      {
+        "name": "Colisiones",
+        "value": this.collisions
+      },
+      {
+        "name": "Paquetes exitosos",
+        "value": this.successfully_packets
+      }
+    ];
+    this._formService.sendStatisData(data);
+  }
+
+  showStatisticsBarras(){
+    let data : any =[];
+    this.reports.forEach(async element => {
+     await data.push({
+        name:element.time,
+        value:element.successPackets
+      })
+    });
+    console.log(data);
+    this._formService.sendStatisDataBarra(data);
   }
 }
